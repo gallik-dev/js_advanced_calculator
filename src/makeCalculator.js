@@ -6,26 +6,17 @@
 function makeCalculator() {
   const calculator = {
     result: 0,
-    add(n) {
-      this.result += n;
-
-      return this;
+    add(a, b) {
+      return a + b;
     },
-
-    subtract(n) {
-      this.result -= n;
-
-      return this;
+    subtract(a, b) {
+      return a - b;
     },
-    multiply(n) {
-      this.result *= n;
-
-      return this;
+    multiply(a, b) {
+      return a * b;
     },
-    divide(n) {
-      this.result /= n;
-
-      return this;
+    divide(a, b) {
+      return a / b;
     },
     reset() {
       this.result = 0;
@@ -33,7 +24,7 @@ function makeCalculator() {
       return this;
     },
     operate(callback, n) {
-      callback(n);
+      this.result = callback(this.result, n);
 
       return this;
     },
